@@ -280,16 +280,19 @@ footer{border-top:1px solid rgba(201,168,76,.1);padding:64px 56px 40px;margin-to
   .hero-deco{display:none;}
   .statement{padding:68px 0;}
   .stmt-text{font-size:clamp(18px,5vw,26px);padding:0 18px;}
+  /* 2本柱 */
   .pillars{grid-template-columns:1fr;margin:0 0 3px;gap:3px;}
-  .pillar{padding:40px 22px;min-height:460px;}
-  .pillar-tag{left:22px;font-size:7.5px;}
+  .pillar{padding:40px 24px;min-height:520px;}
+  .pillar-tag{left:24px;font-size:7.5px;}
   .pillar-cat{right:14px;}
-  .pillar-imgs{top:50%;transform:translate(-50%,-55%);}
+  .pillar-imgs{flex-direction:column;gap:14px;top:50%;transform:translate(-50%,-50%);}
+  .pillar-img{width:160px !important;height:160px !important;}
   .sd{margin:0;padding:44px 18px;}
   .sd-head{grid-template-columns:1fr;}
   .sd-price-block{text-align:left;margin-top:0;margin-bottom:26px;}
   .sd-body{grid-template-columns:1fr;gap:36px;}
-  .sdp-grid{grid-template-columns:1fr 1fr;}
+  .sdp-grid{grid-template-columns:1fr;}
+  .sdp-img-wrap{width:100%;max-width:280px;height:auto;aspect-ratio:1;}
   .sd-cta{flex-direction:column;}
   .bt{margin:0;padding:52px 18px;}
   .bt-inner{grid-template-columns:1fr;gap:36px;}
@@ -523,7 +526,7 @@ footer{border-top:1px solid rgba(201,168,76,.1);padding:64px 56px 40px;margin-to
     <div>
       <p class="ft-logo">SAPRO</p>
       <p class="ft-tagline">Luxury Wellness by RSF Inc.</p>
-      <p class="ft-info">株式会社RSFが手がけるラグジュアリーウェルネスブランド。<br>プロテイン・サプリメント、各カテゴリの頂点を追求する。<br>東京都新宿区5-4-1 Qフラットビル408<br>business@rsf-1.co.jp</p>
+      <p class="ft-info">株式会社RSFが手がけるラグジュアリーウェルネスブランド。<br>プロテイン・サプリメント、各カテゴリの頂点を追求する。<br>東京都新宿区5-4-1 Qフラットビル408<br><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="8ae8fff9e3e4eff9f9caf8f9eca7bba4e9e5a4e0fa">[email&#160;protected]</a></p>
     </div>
     <div>
       <p class="ft-col-title">PRODUCTS</p>
@@ -541,7 +544,7 @@ footer{border-top:1px solid rgba(201,168,76,.1);padding:64px 56px 40px;margin-to
         <li><a href="https://rsf-1.co.jp/" target="_blank">株式会社RSF</a></li>
         <li><a href="https://rsf-1.co.jp/" target="_blank">会社概要</a></li>
         <li><a href="https://rsf-1.co.jp/" target="_blank">事業内容</a></li>
-        <li><a href="mailto:business@rsf-1.co.jp">お問い合わせ</a></li>
+        <li><a href="/cdn-cgi/l/email-protection#d1b3a4a2b8bfb4a2a291a3a2b7fce0ffb2beffbba1">お問い合わせ</a></li>
       </ul>
     </div>
     <div>
@@ -560,7 +563,7 @@ footer{border-top:1px solid rgba(201,168,76,.1);padding:64px 56px 40px;margin-to
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // Cursor
 const cur=document.getElementById('cur'),ring=document.getElementById('cur-ring');
 let mx=0,my=0,rx=0,ry=0;
@@ -580,9 +583,4 @@ document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
 document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}}));
 // SP menu
 function toggleMenu(){const m=document.getElementById('sp-menu'),b=document.getElementById('burger');m.classList.toggle('open');b.classList.toggle('open');document.body.style.overflow=m.classList.contains('open')?'hidden':'';}
-function closeMenu(){document.getElementById('sp-menu').classList.remove('open');document.getElementById('burger').classList.remove('open');document.body.style.overflow='';}
-// Notify
-document.getElementById('notify-btn')?.addEventListener('click',()=>{const i=document.querySelector('.bt-notify input');if(i?.value){i.value='';i.placeholder='登録しました。ありがとうございます。';}});
-</script>
-</body>
-</html>
+function closeMenu(){document.getElementById('sp-menu').classList.remove('open');document.getElementById('burger').classList.remove('open');document.body.st
