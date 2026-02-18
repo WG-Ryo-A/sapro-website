@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -205,18 +206,17 @@ body{background:var(--black);color:var(--tx1);font-family:var(--fb);font-weight:
 .producer-bg-layer{position:absolute;inset:0;background:linear-gradient(160deg,#0c0b10 0%,#080609 100%);}
 .producer:last-child .producer-bg-layer{background:linear-gradient(160deg,#090a0d 0%,#06080b 100%);}
 
-/* シルエットSVG */
-.prod-silhouette{position:absolute;bottom:0;left:50%;transform:translateX(-50%);z-index:1;pointer-events:none;}
-.prod-halo{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:320px;height:420px;z-index:0;background:radial-gradient(ellipse 70% 55% at 50% 85%,rgba(201,168,76,.1) 0%,transparent 65%);animation:haloPulse 5s ease-in-out infinite;}
-@keyframes haloPulse{0%,100%{opacity:.7;}50%{opacity:1;}}
+/* シルエット削除 - グロー効果のみ */
+.prod-halo{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:420px;height:500px;z-index:0;background:radial-gradient(ellipse 75% 55% at 50% 75%,rgba(201,168,76,.14) 0%,rgba(201,168,76,.06) 40%,transparent 70%);animation:haloPulse 5s ease-in-out infinite;}
+@keyframes haloPulse{0%,100%{opacity:.75;}50%{opacity:1;}}
 
-.producer-content{position:relative;z-index:3;padding:48px 52px;width:100%;background:linear-gradient(to top,rgba(0,0,0,.94) 0%,rgba(0,0,0,.72) 55%,transparent 100%);}
+.producer-content{position:relative;z-index:3;padding:68px 56px;width:100%;text-align:center;display:flex;flex-direction:column;align-items:center;background:linear-gradient(to top,rgba(0,0,0,.96) 0%,rgba(0,0,0,.85) 40%,rgba(0,0,0,.6) 70%,transparent 100%);}
 .producer-role{font-size:8px;letter-spacing:.52em;color:var(--gold);text-transform:uppercase;margin-bottom:11px;}
-.producer-name{font-family:var(--fd);font-size:clamp(36px,4vw,52px);font-weight:300;font-style:italic;letter-spacing:.1em;color:var(--tx1);line-height:1.04;margin-bottom:3px;}
-.producer-name-en{font-size:9px;letter-spacing:.42em;color:var(--gold-dim);text-transform:uppercase;margin-bottom:22px;}
-.producer-rule{width:30px;height:1px;background:linear-gradient(to right,var(--gold),transparent);margin-bottom:18px;}
-.producer-quote{font-family:var(--fd);font-style:italic;font-size:clamp(14px,1.5vw,17px);color:var(--gold-pale);letter-spacing:.06em;line-height:1.75;margin-bottom:18px;border-left:2px solid rgba(201,168,76,.4);padding-left:16px;}
-.producer-body{font-size:12px;line-height:2.1;letter-spacing:.09em;color:var(--tx2);max-width:400px;}
+.producer-name{font-family:var(--fd);font-size:clamp(44px,5vw,68px);font-weight:300;font-style:italic;letter-spacing:.1em;color:var(--tx1);line-height:1.04;margin-bottom:3px;}
+.producer-name-en{font-size:9px;letter-spacing:.42em;color:var(--gold-dim);text-transform:uppercase;margin-bottom:28px;}
+.producer-rule{width:30px;height:1px;background:linear-gradient(to right,var(--gold),transparent);margin-bottom:24px;}
+.producer-quote{font-family:var(--fd);font-style:italic;font-size:clamp(16px,1.8vw,20px);color:var(--gold-pale);letter-spacing:.06em;line-height:1.8;margin-bottom:24px;border-left:none;padding-left:0;max-width:520px;border-top:1px solid rgba(201,168,76,.25);border-bottom:1px solid rgba(201,168,76,.25);padding:20px 0;}
+.producer-body{font-size:13px;line-height:2.2;letter-spacing:.09em;color:var(--tx2);max-width:520px;}
 
 /* PROMISE */
 .promise{padding:112px 0;text-align:center;position:relative;background:linear-gradient(to bottom,var(--bg1),var(--black));}
@@ -245,7 +245,7 @@ footer{border-top:1px solid rgba(201,168,76,.1);padding:64px 56px 40px;margin-to
 .ft-note{font-size:9px;letter-spacing:.16em;color:rgba(201,168,76,.3);}
 
 /* REVEAL */
-.rv{opacity:0;transform:translateY(20px);transition:opacity .9s var(--ease),transform .9s var(--ease);}
+.rv{opacity:1;transform:translateY(0);transition:opacity .9s var(--ease),transform .9s var(--ease);}
 .rv.in{opacity:1;transform:translateY(0);}
 .d1{transition-delay:.1s;}.d2{transition-delay:.22s;}.d3{transition-delay:.36s;}.d4{transition-delay:.52s;}
 @keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
@@ -297,10 +297,9 @@ footer{border-top:1px solid rgba(201,168,76,.1);padding:64px 56px 40px;margin-to
   .bt-notify input{border-right:1px solid rgba(201,168,76,.22);border-bottom:none;}
   .bt-notify button{border-top:none;padding:12px;}
   .producers-header{padding:72px 18px 52px;}
-  .producer{min-height:520px;}
-  .producer-content{padding:36px 22px;}
-  .prod-silhouette{width:200px !important;}
-  .producer-body{font-size:11.5px;}
+  .producer{min-height:480px;}
+  .producer-content{padding:44px 24px;}
+  .producer-body{font-size:12px;}
   .promise{padding:68px 0;}
   .pm-text{padding:0 18px;}
   .pm-grid{grid-template-columns:1fr;margin:0 18px;}
@@ -479,36 +478,6 @@ footer{border-top:1px solid rgba(201,168,76,.1);padding:64px 56px 40px;margin-to
     <div class="producer rv">
       <div class="producer-bg-layer"></div>
       <div class="prod-halo"></div>
-      <!-- シルエット：腕組みポーズ -->
-      <svg class="prod-silhouette" width="280" height="540" viewBox="0 0 280 540" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="bodyGradA" x1="140" y1="100" x2="140" y2="540" gradientUnits="userSpaceOnUse">
-            <stop offset="0%" stop-color="#c9a84c" stop-opacity="0.7"/>
-            <stop offset="100%" stop-color="#c9a84c" stop-opacity="0.35"/>
-          </linearGradient>
-          <radialGradient id="glowA" cx="50%" cy="90%" r="50%">
-            <stop offset="0%" stop-color="#c9a84c" stop-opacity="0.2"/>
-            <stop offset="100%" stop-color="#c9a84c" stop-opacity="0"/>
-          </radialGradient>
-        </defs>
-        <!-- 足 -->
-        <path d="M105 390 L94 540 L122 540 L140 445 L158 540 L186 540 L175 390 Z" fill="url(#bodyGradA)"/>
-        <!-- 胴体 -->
-        <path d="M90 225 L85 394 L195 394 L190 225 Z" fill="url(#bodyGradA)"/>
-        <!-- 腕組み左 -->
-        <path d="M90 248 L44 302 L60 318 L92 274 Z" fill="url(#bodyGradA)"/>
-        <!-- 腕組み右 -->
-        <path d="M190 248 L236 302 L220 318 L188 274 Z" fill="url(#bodyGradA)"/>
-        <!-- 腕組みクロス -->
-        <path d="M88 268 L155 302 L160 284 L94 250 Z" fill="url(#bodyGradA)" opacity="0.8"/>
-        <path d="M192 268 L125 302 L120 284 L186 250 Z" fill="url(#bodyGradA)" opacity="0.8"/>
-        <!-- 首 -->
-        <rect x="126" y="178" width="28" height="50" rx="10" fill="url(#bodyGradA)"/>
-        <!-- 頭 -->
-        <ellipse cx="140" cy="150" rx="46" ry="54" fill="url(#bodyGradA)"/>
-        <!-- グロー -->
-        <ellipse cx="140" cy="480" rx="130" ry="60" fill="url(#glowA)"/>
-      </svg>
       <div class="producer-content">
         <p class="producer-role">総合プロデューサー</p>
         <h3 class="producer-name">東</h3>
@@ -523,33 +492,6 @@ footer{border-top:1px solid rgba(201,168,76,.1);padding:64px 56px 40px;margin-to
     <div class="producer rv d2">
       <div class="producer-bg-layer"></div>
       <div class="prod-halo"></div>
-      <!-- シルエット：自信の立ちポーズ -->
-      <svg class="prod-silhouette" width="280" height="540" viewBox="0 0 280 540" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="bodyGradB" x1="140" y1="100" x2="140" y2="540" gradientUnits="userSpaceOnUse">
-            <stop offset="0%" stop-color="#c9a84c" stop-opacity="0.65"/>
-            <stop offset="100%" stop-color="#c9a84c" stop-opacity="0.3"/>
-          </linearGradient>
-          <radialGradient id="glowB" cx="50%" cy="90%" r="50%">
-            <stop offset="0%" stop-color="#c9a84c" stop-opacity="0.18"/>
-            <stop offset="100%" stop-color="#c9a84c" stop-opacity="0"/>
-          </radialGradient>
-        </defs>
-        <!-- 足（少し開く） -->
-        <path d="M108 388 L100 540 L126 540 L140 448 L154 540 L180 540 L172 388 Z" fill="url(#bodyGradB)"/>
-        <!-- 胴体 -->
-        <path d="M93 218 L88 392 L192 392 L187 218 Z" fill="url(#bodyGradB)"/>
-        <!-- 左腕 自然に下ろす -->
-        <path d="M93 230 L62 352 L78 358 L104 240 Z" fill="url(#bodyGradB)"/>
-        <!-- 右腕 少し外側 -->
-        <path d="M187 230 L218 352 L202 358 L176 240 Z" fill="url(#bodyGradB)"/>
-        <!-- 首 -->
-        <rect x="127" y="174" width="26" height="46" rx="9" fill="url(#bodyGradB)"/>
-        <!-- 頭 -->
-        <ellipse cx="140" cy="148" rx="44" ry="52" fill="url(#bodyGradB)"/>
-        <!-- グロー -->
-        <ellipse cx="140" cy="480" rx="125" ry="58" fill="url(#glowB)"/>
-      </svg>
       <div class="producer-content">
         <p class="producer-role">ディレクター</p>
         <h3 class="producer-name">岩井</h3>
@@ -581,7 +523,7 @@ footer{border-top:1px solid rgba(201,168,76,.1);padding:64px 56px 40px;margin-to
     <div>
       <p class="ft-logo">SAPRO</p>
       <p class="ft-tagline">Luxury Wellness by RSF Inc.</p>
-      <p class="ft-info">株式会社RSFが手がけるラグジュアリーウェルネスブランド。<br>プロテイン・サプリメント、各カテゴリの頂点を追求する。<br>東京都新宿区5-4-1 Qフラットビル408<br><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="51332422383f342222112322377c607f323e7f3b21">[email&#160;protected]</a></p>
+      <p class="ft-info">株式会社RSFが手がけるラグジュアリーウェルネスブランド。<br>プロテイン・サプリメント、各カテゴリの頂点を追求する。<br>東京都新宿区5-4-1 Qフラットビル408<br>business@rsf-1.co.jp</p>
     </div>
     <div>
       <p class="ft-col-title">PRODUCTS</p>
@@ -599,7 +541,7 @@ footer{border-top:1px solid rgba(201,168,76,.1);padding:64px 56px 40px;margin-to
         <li><a href="https://rsf-1.co.jp/" target="_blank">株式会社RSF</a></li>
         <li><a href="https://rsf-1.co.jp/" target="_blank">会社概要</a></li>
         <li><a href="https://rsf-1.co.jp/" target="_blank">事業内容</a></li>
-        <li><a href="/cdn-cgi/l/email-protection#d0b2a5a3b9beb5a3a390a2a3b6fde1feb3bffebaa0">お問い合わせ</a></li>
+        <li><a href="mailto:business@rsf-1.co.jp">お問い合わせ</a></li>
       </ul>
     </div>
     <div>
@@ -618,7 +560,7 @@ footer{border-top:1px solid rgba(201,168,76,.1);padding:64px 56px 40px;margin-to
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 // Cursor
 const cur=document.getElementById('cur'),ring=document.getElementById('cur-ring');
 let mx=0,my=0,rx=0,ry=0;
@@ -638,4 +580,9 @@ document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
 document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}}));
 // SP menu
 function toggleMenu(){const m=document.getElementById('sp-menu'),b=document.getElementById('burger');m.classList.toggle('open');b.classList.toggle('open');document.body.style.overflow=m.classList.contains('open')?'hidden':'';}
-function closeMenu(){document.getElementById('sp-menu').classList.remove('open');document.getElementById('burger').classList.remove('open');document.body.st
+function closeMenu(){document.getElementById('sp-menu').classList.remove('open');document.getElementById('burger').classList.remove('open');document.body.style.overflow='';}
+// Notify
+document.getElementById('notify-btn')?.addEventListener('click',()=>{const i=document.querySelector('.bt-notify input');if(i?.value){i.value='';i.placeholder='登録しました。ありがとうございます。';}});
+</script>
+</body>
+</html>
